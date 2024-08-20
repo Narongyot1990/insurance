@@ -1,0 +1,28 @@
+/* src/pages/Promotion.css */
+.promotion-page {
+  display: flex;
+  flex-wrap: wrap; /* ช่วยให้ card สามารถ wrap ไปแถวใหม่ได้ */
+  justify-content: flex-start; /* เรียงจากซ้ายไปขวา */
+  gap: 20px; /* สร้างระยะห่างระหว่าง cards */
+  padding: 20px;
+}
+
+.product-card {
+  flex: 1 1 300px; /* กำหนดความกว้างคงที่ให้แต่ละ card */
+  box-sizing: border-box;
+  max-width: 300px; /* จำกัด max-width ให้ไม่เกิน 300px */
+}
+
+@media screen and (max-width: 1024px) {
+  .product-card {
+    flex: 1 1 45%; /* แสดง 2 cards ต่อแถวบนแท็บเล็ต */
+    max-width: 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-card {
+    flex: 1 1 100%; /* แสดง 1 card ต่อแถวบนมือถือ */
+    max-width: 100%;
+  }
+}

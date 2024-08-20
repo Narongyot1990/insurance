@@ -1,0 +1,197 @@
+/* ใช้ box-sizing: border-box เพื่อรวม padding และ border ไว้ในขนาด */
+.navbar,
+.navbar.sticky {
+  box-sizing: border-box;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  background-color: #D31145;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 70px;
+  transition: top 0.5s ease-in-out, background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #D31145;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  animation: fadeInDown 0.5s ease forwards;
+}
+
+.navbar:not(.sticky) {
+  animation: fadeOutUp 0.5s ease forwards;
+}
+
+.navbar.sticky-active {
+  top: 0;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: flex-start; /* ให้อยู่ทางซ้าย */
+  align-items: center; /* ให้อยู่ในแนวกลางในแนวตั้ง */
+  gap: 15px; /* ช่องว่างระหว่างข้อความ */
+  white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ */
+}
+
+.navbar-text {
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ */
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: flex-end; /* ให้อยู่ทางขวา */
+  align-items: center;
+  gap: 15px;
+  white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ */
+}
+
+.navbar-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar-logo {
+  height: 40px;
+  margin-left: 10px;
+}
+
+/* ปิดการแสดงผลของปุ่ม Hamburger นอกเหนือจากมือถือ */
+.navbar-menu-toggle {
+  display: none;
+}
+
+/* Slide bar CSS */
+.navbar-menu-active {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #D31145;
+  display: flex;
+  flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transform: translateX(100%); /* เริ่มซ่อน slide bar นอกหน้าจอทางขวา */
+  transition: transform 0.5s ease; /* เพิ่มความช้าในการเลื่อน */
+  z-index: 1000;
+}
+
+.navbar-menu-active.open {
+  transform: translateX(0); /* เลื่อน slide bar เข้ามาในหน้าจอ */
+}
+
+.navbar-menu-active .navbar-menu {
+  display: flex;
+  flex-direction: column; /* เรียงลำดับจากบนลงล่าง */
+  gap: 16px; /* เพิ่มช่องว่างระหว่างแต่ละลิงก์ */
+  margin-top: 20px;
+  width: 100%; /* ขยายให้ครอบคลุมความกว้างทั้งหมด */
+  padding: 0; /* ลบ padding เพื่อให้เต็มพื้นที่ */
+  box-sizing: border-box; /* ป้องกัน padding หรือ border ส่งผลต่อขนาด */
+}
+
+.navbar-menu-active .navbar-link {
+  padding: 10px 15px; /* เพิ่ม padding ให้ลิงก์ */
+  border-bottom: 2px solid transparent; /* เพิ่มขีดเส้นใต้ที่เป็นโปร่งใสตอนแรก */
+  transition: border-color 0.5s ease; /* ทำให้เส้นใต้ปรากฏอย่างนุ่มนวลเมื่อ hover */
+  width: 100%; /* ขยายลิงก์ให้เต็มความกว้างของ slide bar */
+  box-sizing: border-box; /* ให้ padding และ border ไม่ส่งผลต่อขนาดของลิงก์ */
+  text-align: left; /* จัดข้อความไว้ทางซ้าย */
+  display: block; /* ทำให้ลิงก์เป็นบล็อกเต็มความกว้าง */
+}
+
+.navbar-menu-active .navbar-link:hover {
+  border-bottom: 2px solid #fff; /* เปลี่ยนสีเส้นใต้เป็นสีขาวเมื่อ hover */
+}
+
+/* ปุ่มปิด X */
+.navbar-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .navbar-left {
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start; /* จัดให้อยู่กลางแนวตั้ง */
+    gap: 2px; /* ช่องว่างระหว่างข้อความ */
+    margin-bottom: 2px;
+  }
+
+  .navbar-right {
+    display: none; /* ซ่อน navbar-right บนมือถือ */
+  }
+
+  .navbar-menu-toggle {
+    display: block; /* แสดงปุ่ม Hamburger บนมือถือ */
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+  }
+}
+
+/* สำหรับการซ่อน slide bar เมื่อคลิกข้างนอก */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.overlay.open {
+  display: block;
+}

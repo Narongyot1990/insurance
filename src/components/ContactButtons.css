@@ -1,0 +1,109 @@
+/* src/components/ContactButtons.css */
+
+.contact-buttons-container {
+  position: fixed;
+  bottom: 50%;
+  right: 25px;
+  z-index: 1001;
+}
+
+/* ปุ่มหลักพร้อม label */
+.main-button-label {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* ช่องว่างระหว่าง label และปุ่ม */
+}
+
+/* ปุ่มหลัก */
+.main-contact-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.9s ease, box-shadow 0.9s ease;
+  z-index: 1002;
+}
+
+.main-contact-button img {
+  width: 55px;
+  height: 55px;
+}
+
+.contact-buttons-container:hover .main-contact-button {
+  transform: translateY(-3px) rotate(360deg);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.contact-buttons-container:hover .messenger-button,
+.contact-buttons-container:hover .line-button,
+.contact-buttons-container:hover .phone-button {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Label ของปุ่มหลัก */
+.main-button-label span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Messenger Button */
+.messenger-button {
+  position: absolute;
+  bottom: 30px;
+  right: 0px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+.contact-buttons-container:hover .messenger-button {
+  transform: translateY(-60px);
+}
+
+.messenger-button img {
+  width: 60px;
+  height: 60px;
+}
+
+/* Line Button */
+.line-button {
+  position: absolute;
+  bottom: 0px;
+  right: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+.contact-buttons-container:hover .line-button {
+  transform: translateX(-60px);
+}
+
+.line-button img {
+  width: 60px;
+  height: 60px;
+}
+
+/* Phone Button */
+.phone-button {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+.contact-buttons-container:hover .phone-button {
+  transform: translateY(60px);
+}
+
+.phone-button img {
+  width: 50px;
+  height: 50px;
+}
