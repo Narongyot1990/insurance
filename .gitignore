@@ -21,3 +21,16 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# ละเว้นไฟล์ภาพทั้งหมด
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# ละเว้นโฟลเดอร์ assets
+/src/assets/
+
+# ละเว้นไฟล์ log
+*.log
