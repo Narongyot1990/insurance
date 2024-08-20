@@ -2,7 +2,7 @@
 
 .contact-buttons-container {
   position: fixed;
-  bottom: 50%;
+  bottom: 10%;
   right: 25px;
   z-index: 1001;
 }

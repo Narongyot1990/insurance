@@ -14,12 +14,21 @@ function Footer() {
   };
 
   const linkStyle = {
-    color: '#00aaff', // A lighter blue for better visibility
+    color: '#00aaff',
     textDecoration: 'underline',
   };
 
+  // Media query for mobile devices
+  const mobileFooterStyle = {
+    ...footerStyle,
+    fontSize: '12px', // Smaller font size for mobile
+    padding: '8px 0', // Adjust padding for mobile
+  };
+
+  const isMobile = window.innerWidth <= 768; // You can adjust the width as needed
+
   return (
-    <footer style={footerStyle}>
+    <footer style={isMobile ? mobileFooterStyle : footerStyle}>
       <p> Copyright&copy; 2024 ตัวแทนประกันชีวิตเอไอเอ คุณดาระวี บุญสิริเวทย์</p>
       <p>เว็บไซต์นี้ไม่ใช่เว็บไซต์ของบริษัท เอไอเอ จำกัด (เอไอเอ) หากต้องการติดต่อ เอไอเอ กรุณาคลิก <a href="https://www.aia.co.th" target="_blank" rel="noopener noreferrer" style={linkStyle}>www.aia.co.th</a></p>
     </footer>

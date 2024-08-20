@@ -99,7 +99,7 @@
   top: 0;
   right: 0;
   width: 200px;
-  height: 100%;
+  height: 100vh;
   background-color: #D31145;
   display: flex;
   flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
