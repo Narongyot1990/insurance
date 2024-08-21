@@ -21,11 +21,11 @@ function Footer() {
   // Media query for mobile devices
   const mobileFooterStyle = {
     ...footerStyle,
-    fontSize: '12px', // Smaller font size for mobile
-    padding: '8px 0', // Adjust padding for mobile
+    fontSize: '12px', 
+    padding: '8px 0', 
   };
 
-  const isMobile = window.innerWidth <= 768; // You can adjust the width as needed
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <footer style={isMobile ? mobileFooterStyle : footerStyle}>

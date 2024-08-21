@@ -8,7 +8,7 @@
     max-width: 300px;
     margin: 20px;
     text-align: left;
-    position: relative; /* เพิ่ม position: relative */
+    position: relative; 
 }
 
 .product-card-image {

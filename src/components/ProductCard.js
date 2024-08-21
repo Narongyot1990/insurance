@@ -1,7 +1,7 @@
 // src/components/ProductCard.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ProductCard.css'; // นำเข้า CSS สำหรับจัดการสไตล์
+import './ProductCard.css';
 
 function ProductCard({ title, subtitle, description, imgSrc, link }) {
   return (

@@ -32,8 +32,13 @@ function Navbar() {
     <>
       <nav className={`navbar ${isSticky ? 'sticky sticky-active' : ''}`}>
         <div className="navbar-left">
-          <span className="navbar-text">ดาระวี บุญสิริเวทย์</span>
-          <span className="navbar-text">095 119 2491 | darawee.pr@gmail.com</span>
+          <div>
+            <img src={Logo} alt="Logo" className="navbar-logo-hidden" />
+          </div>
+          <div className='navbar-profile-info'>
+            <span className="navbar-text">ตัวแทนประกันชีวิต AIA</span>
+            <span className="navbar-text">คุณดาระวี บุญสิริเวทย์ | 095 119 2491 | darawee.pr@gmail.com</span>
+          </div>
         </div>
         <div className="navbar-right">
           <ul className="navbar-menu">

@@ -1,7 +1,7 @@
 // src/pages/Promotion.js
 import React from 'react';
 import ProductCard from '../components/ProductCard';
-import './Promotion.css'; // Import CSS สำหรับจัดการ Responsive
+import './Promotion.css'; 
 import img1 from '../assets/images/4.png'
 import img2 from '../assets/images/5.png'
 import img3 from '../assets/images/6.png'
@@ -35,7 +35,6 @@ function Promotion() {
       imgSrc: img2,
       link: '/product/my-wish-retirement-par'
     },
-    // เพิ่มอีก 8 cards ตามต้องการ
     {
       title: 'D-Super Saving 10.1',
       subtitle: 'ประกันชีวิตสะสมทรัพย์',
@@ -49,7 +48,7 @@ function Promotion() {
       imgSrc: img3,
       link: '/product/d-super-saving-10-1'
     },
-    // เพิ่มอีก 7 cards
+    // เพิ่มอีก 4 cards
   ];
 
   return (

@@ -1,7 +1,7 @@
 .line-button {
     position: absolute;
     bottom: 20px;
-    right: 90px; /* Adjust this value so it doesn’t overlap with the Messenger button */
+    right: 90px; 
     background-color: transparent;
     border-radius: 50%;
     transition: transform 0.3s ease;

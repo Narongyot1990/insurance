@@ -11,7 +11,7 @@ function ContactUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handle form submission logic here
+    // submission logic 
   };
 
   const fields = [

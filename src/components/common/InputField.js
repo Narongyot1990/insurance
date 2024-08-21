@@ -16,8 +16,8 @@ function InputField({ label, value, onChange, type = 'text', placeholder = '', c
       {label && <label>{label}</label>}
       <input
         type={type}
-        value={value}
-        onChange={onChange}
+        value={value || ''}
+        onChange={(e) => onChange && onChange(e.target.value)}
         placeholder={placeholder}
         style={defaultStyle}
       />

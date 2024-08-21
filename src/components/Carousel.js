@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './Carousel.css';
 
 function Carousel({ slides }) {
-  const [currentIndex, setCurrentIndex] = useState(1); // Start at 1 because we duplicate the last slide at index 0
+  const [currentIndex, setCurrentIndex] = useState(1); 
   const [isAnimating, setIsAnimating] = useState(false);
   const totalSlides = slides.length;
 
@@ -23,7 +23,7 @@ function Carousel({ slides }) {
   const goToSlide = useCallback((index) => {
     if (!isAnimating) {
       setIsAnimating(true);
-      setCurrentIndex(index + 1); // Offset by 1 to account for the duplicated first slide
+      setCurrentIndex(index + 1); 
     }
   }, [isAnimating]);
 
@@ -37,11 +37,10 @@ function Carousel({ slides }) {
       const timeout = setTimeout(() => {
         setIsAnimating(false);
 
-        // Handle seamless looping
         if (currentIndex === 0) {
-          setCurrentIndex(totalSlides); // Jump to the last slide without animation
+          setCurrentIndex(totalSlides);
         } else if (currentIndex === totalSlides + 1) {
-          setCurrentIndex(1); // Jump to the first slide without animation
+          setCurrentIndex(1); 
         }
       }, 500);
       return () => clearTimeout(timeout);
@@ -54,7 +53,7 @@ function Carousel({ slides }) {
         className="carousel-track"
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
-          transition: isAnimating ? 'transform 0.5s ease' : 'none', // Disable transition during jump
+          transition: isAnimating ? 'transform 0.5s ease' : 'none',
         }}
       >
         {/* Duplicate last slide */}

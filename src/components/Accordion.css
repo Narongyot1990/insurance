@@ -1,0 +1,43 @@
+/* src/components/Accordion.css */
+
+.accordion {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .accordion-header {
+    background-color: #f7f7f7;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .accordion-header h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .accordion-icon {
+    transition: transform 0.3s ease, content 0.3s ease;
+  }
+  
+  .accordion-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    max-height: 0;
+    padding: 0 15px;
+    background-color: #fff;
+  }
+  
+  .accordion-content.open {
+    padding: 15px;
+  }
+  
+  .accordion-header.open .accordion-icon {
+    transform: rotate(360deg); /* Rotates the icon 1 full rotation */
+  }
+  
