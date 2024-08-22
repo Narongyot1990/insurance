@@ -3,6 +3,7 @@
   color: #222; /* ใช้สีเข้มแทน #333 */
   background-color: #f5f5f5;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Section 1 */
@@ -49,22 +50,39 @@
 }
 
 .section-2 .text-content h2 {
-  color: #005f73; /* เปลี่ยนเป็นโทนสีน้ำเงินเข้ม */
+  color: #D31145; /* เปลี่ยนเป็นโทนสีน้ำเงินเข้ม */
   text-transform: uppercase;
   letter-spacing: 3px; /* ลดระยะห่างระหว่างตัวอักษร */
 }
 
 .section-2 .text-content p {
-  color: #0a9396; /* สีเขียวอมฟ้า */
+  color: #333; /* สีเขียวอมฟ้า */
+}
+
+@keyframes rotateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .section-2 .dynamic-image {
-  border: 2px solid #0a9396; /* ขอบสีเขียวอมฟ้า บางลง */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* เงาที่นุ่มและเบาลง */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(255, 255, 255, 0.5);
   opacity: 0;
-  transform: translateX(-100px) scale(0.8) rotate(-3deg);
+  transform: translateX(100px) scale(0.8) rotate(3deg);
   transition: opacity 1s ease, transform 1s ease;
 }
+
+
+.section-2.show .dynamic-image {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
 
 .section-2.show .dynamic-image {
   opacity: 1;
@@ -89,21 +107,37 @@
 }
 
 .section-3 .text-content h2 {
-  color: #3a86ff; /* เปลี่ยนเป็นสีน้ำเงินสดใส */
+  color: #D31145; /* เปลี่ยนเป็นสีน้ำเงินสดใส */
   font-style: normal; /* เอาฟอนต์ตัวเอียงออก */
   letter-spacing: 1px; /* ลดระยะห่างระหว่างตัวอักษร */
 }
-
 .section-3 .text-content p {
-  color: #023047; /* สีเทาเข้มอมฟ้า */
+  color: #333; /* สีเทาเข้มอมฟ้า */
+  margin-bottom: 10px; /* ปรับระยะห่างด้านล่างให้แคบลง */
+  line-height: 1; /* ปรับระยะห่างระหว่างบรรทัดให้แน่นขึ้น */
+}
+
+@keyframes rotateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .section-3 .dynamic-image {
-  border: 2px solid #3a86ff; /* ขอบสีฟ้าสดใส บางลง */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* เงาที่นุ่มและเบาลง */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(255, 255, 255, 0.5);
   opacity: 0;
   transform: translateX(100px) scale(0.8) rotate(3deg);
   transition: opacity 1s ease, transform 1s ease;
+}
+
+.section-3.show .dynamic-image {
+  opacity: 1;
+  transform: translateX(0) scale(1);
 }
 
 .section-3.show .dynamic-image {
@@ -130,7 +164,6 @@
 .animate-line.show {
   animation: slideIn 0.6s ease forwards; /* ใช้แอนิเมชันเมื่อเพิ่มคลาส show */
 }
-
 
 /* Section 4 */
 .section-4 {
@@ -313,8 +346,9 @@
   }
 
   .dynamic-image {
-    order: 1;
-    margin-bottom: 20px;
+    width: 100%; /* ให้ภาพครอบคลุมความกว้างของ container */
+    height: auto; /* ให้ความสูงของภาพปรับตามอัตราส่วนของภาพ */
+    object-fit: contain; /* ให้ภาพแสดงผลแบบคงอัตราส่วนไว้ */
   }
 
   .text-content {

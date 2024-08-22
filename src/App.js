@@ -8,21 +8,11 @@ import Footer from './components/layout/Footer';
 import ContactButtons from './components/ContactButtons';
 
 function App() {
-  const appStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
-  };
-
-  const contentStyle = {
-    flex: '1', 
-  };
-
   return (
-    <div style={appStyle}>
+    <div className="app-root">
       <Router>
         <Navbar />
-        <div style={contentStyle}>
+        <div className="content-container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/contact' element={<Contact />} />
