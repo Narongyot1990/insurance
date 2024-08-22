@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import ContactUs from './pages/ContactUs';
+import Contact from './pages/Contact';
 import Promotion from './pages/Promotion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -25,7 +25,7 @@ function App() {
         <div style={contentStyle}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<ContactUs />} />
+            <Route path='/contact' element={<Contact />} />
             <Route path="/promotion" element={<Promotion />} />
           </Routes>
         </div>

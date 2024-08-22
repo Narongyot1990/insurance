@@ -36,8 +36,8 @@ function Navbar() {
             <img src={Logo} alt="Logo" className="navbar-logo-hidden" />
           </div>
           <div className='navbar-profile-info'>
-            <span className="navbar-text">ตัวแทนประกันชีวิต AIA</span>
-            <span className="navbar-text">คุณดาระวี บุญสิริเวทย์ | 095 119 2491 | darawee.pr@gmail.com</span>
+            <span className="navbar-text">ตัวแทนประกันชีวิต AIA </span>
+            <span className="navbar-text">คุณดาระวี บุญสิริเวทย์ (095 119 2491)</span>
           </div>
         </div>
         <div className="navbar-right">
@@ -49,7 +49,7 @@ function Navbar() {
               <Link to="/promotion" className="navbar-link">ผลิตภัณฑ์</Link>
             </li>
             <li>
-              <Link to="/contract" className="navbar-link">ติดต่อตัวแทน</Link>
+              <Link to="/contact" className="navbar-link">ติดต่อตัวแทน</Link>
             </li>
           </ul>
           <img src={Logo} alt="Logo" className="navbar-logo" />
@@ -71,7 +71,7 @@ function Navbar() {
               <Link to="/promotion" className="navbar-link" onClick={closeMenu}>ผลิตภัณฑ์</Link>
             </li>
             <li>
-              <Link to="/contract" className="navbar-link" onClick={closeMenu}>ติดต่อตัวแทน</Link>
+              <Link to="/contact" className="navbar-link" onClick={closeMenu}>ติดต่อตัวแทน</Link>
             </li>
           </ul>
         </div>

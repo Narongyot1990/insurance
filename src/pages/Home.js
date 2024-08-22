@@ -1,7 +1,7 @@
 import React from 'react';
 import Heading from '../components/common/Heading';
 import Carousel from '../components/Carousel';
-import InsuranceInquiryForm from '../components/InsuranceInquiryForm';
+//import InsuranceInquiryForm from '../components/InsuranceInquiryForm';
 import Accordion from '../components/Accordion'; 
 import { slidesContent, accordionContent, articleContent } from './content';
 
@@ -35,7 +35,7 @@ function Home() {
       ))}
 
       <div style={sectionStyle}>
-        <InsuranceInquiryForm />
+        {/*<InsuranceInquiryForm />*/}
       </div>
 
       <div>
@@ -44,7 +44,7 @@ function Home() {
             {item.content}
           </Accordion>
         ))}
-      </div>
+        </div>
 
     </div>
   );
