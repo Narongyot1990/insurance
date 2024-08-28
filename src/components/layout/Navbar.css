@@ -16,6 +16,10 @@
 }
 
 .navbar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* เพิ่ม z-index ให้สูงขึ้นเพื่อให้ navbar อยู่ด้านบน */
   background-color: #D31145;
   padding: 8px 12px;
   display: flex;
@@ -23,7 +27,7 @@
   align-items: center;
   flex-wrap: nowrap;
   height: 70px;
-  transition: top 0.5s ease-in-out, background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: top 0.5s ease-in-out, background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .navbar.sticky {
@@ -32,9 +36,11 @@
   width: 100%;
   z-index: 1000;
   background-color: #D31145;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px #D31145;
   height: 70px;
   animation: fadeInDown 0.5s ease forwards;
+  border-bottom-left-radius: 20px; /* ความโค้งของขอบล่างซ้าย */
+  border-bottom-right-radius: 20px; /* ความโค้งของขอบล่างขวา */
 }
 
 .navbar:not(.sticky) {
@@ -106,13 +112,13 @@
   position: fixed;
   top: 0px; /* Adjust top based on the sticky navbar height */
   right: 0;
-  width: 200px;
+  width: 250px;
   height: 100vh; /* Adjust height based on the sticky navbar height */
   background-color: #D31145;
   display: flex;
   flex-direction: column; 
   padding: 20px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   transform: translateX(100%); 
   transition: transform 0.5s ease; 
   z-index: 1006;

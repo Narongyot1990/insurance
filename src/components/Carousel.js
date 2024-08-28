@@ -4,6 +4,8 @@ import './Carousel.css';
 function Carousel({ slides }) {
   const [currentIndex, setCurrentIndex] = useState(1); 
   const [isAnimating, setIsAnimating] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
   const totalSlides = slides.length;
 
   const goToNextSlide = useCallback(() => {
@@ -47,8 +49,34 @@ function Carousel({ slides }) {
     }
   }, [currentIndex, isAnimating, totalSlides]);
 
+  // Handle touch start
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  // Handle touch move (optional: to detect the direction of swipe while touching)
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.touches[0].clientX);
+  };
+
+  // Handle touch end
+  const handleTouchEnd = () => {
+    if (touchStartX - touchEndX > 50) {
+      goToNextSlide(); // Swipe left, go to next slide
+    }
+
+    if (touchStartX - touchEndX < -50) {
+      goToPreviousSlide(); // Swipe right, go to previous slide
+    }
+  };
+
   return (
-    <div className="carousel">
+    <div
+      className="carousel"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div
         className="carousel-track"
         style={{
@@ -73,12 +101,8 @@ function Carousel({ slides }) {
           <div className="carousel-caption">{slides[0].caption}</div>
         </div>
       </div>
-      <button className="carousel-button carousel-button-left" onClick={goToPreviousSlide} disabled={isAnimating}>
-        &lt;
-      </button>
-      <button className="carousel-button carousel-button-right" onClick={goToNextSlide} disabled={isAnimating}>
-        &gt;
-      </button>
+      <button className="carousel-button carousel-button-left" onClick={goToPreviousSlide} disabled={isAnimating}></button>
+      <button className="carousel-button carousel-button-right" onClick={goToNextSlide} disabled={isAnimating}></button>
       <div className="carousel-indicators">
         {slides.map((_, index) => (
           <span

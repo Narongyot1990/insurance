@@ -364,6 +364,49 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .content-section,
+  .section-2,
+  .section-3 {
+    padding: 50px 20px; /* ปรับ Padding ให้เหมาะสมกับหน้าจอ iPad */
+    text-align: center; /* จัดให้ข้อความอยู่ตรงกลาง */
+  }
+
+  .content {
+    flex-direction: column; /* เปลี่ยนเป็นแนวตั้งเพื่อให้เนื้อหากระจายกัน */
+    gap: 20px; /* ลดช่องว่างระหว่างเนื้อหาและภาพ */
+  }
+
+  .text-content h2 {
+    font-size: 1.8em; /* ปรับขนาดของหัวข้อให้เล็กลง */
+  }
+
+  .text-content p {
+    font-size: 1em; /* ปรับขนาดของข้อความให้เล็กลง */
+  }
+
+  .dynamic-image {
+    max-width: 90%; /* ลดความกว้างสูงสุดของภาพ */
+    margin: 0 auto; /* จัดภาพให้อยู่ตรงกลาง */
+    transform: translateY(30px) scale(1); /* ปรับขนาดและตำแหน่งของภาพ */
+  }
+  
+  .section-2 .content,
+  .section-3 .content {
+    justify-content: center; /* จัดให้เนื้อหาอยู่ตรงกลาง */
+  }
+
+  .section-2 .dynamic-image,
+  .section-3 .dynamic-image {
+    transform: translateX(0) scale(1); /* ปรับภาพให้เป็นขนาดเต็มและไม่ขยับ */
+  }
+
+  .section-2 .text-content,
+  .section-3 .text-content {
+    order: 2; /* จัดให้ข้อความมาอยู่ด้านล่างของภาพ */
+  }
+}
+
 /* Modal */
 .modal {
   position: fixed;
@@ -373,7 +416,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8); /* พื้นหลังโปร่งแสง */
+  background-color: rgba(0, 0, 0, 0.8); 
   display: flex;
   justify-content: center;
   align-items: center;

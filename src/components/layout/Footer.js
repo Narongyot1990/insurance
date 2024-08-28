@@ -1,36 +1,11 @@
 import React from 'react';
+import './Footer.css'; // Import CSS file
 
 function Footer() {
-  const footerStyle = {
-    backgroundColor: '#333',
-    color: '#fff',
-    textAlign: 'center',
-    padding: '10px 0',
-    position: 'relative',
-    width: '100%',
-    marginTop: '20px',
-    fontSize: '14px',
-    lineHeight: '1.5',
-  };
-
-  const linkStyle = {
-    color: '#00aaff',
-    textDecoration: 'underline',
-  };
-
-  // Media query for mobile devices
-  const mobileFooterStyle = {
-    ...footerStyle,
-    fontSize: '12px', 
-    padding: '8px 0', 
-  };
-
-  const isMobile = window.innerWidth <= 768;
-
   return (
-    <footer style={isMobile ? mobileFooterStyle : footerStyle}>
-      <p> Copyright&copy; 2024 ตัวแทนประกันชีวิตเอไอเอ คุณดาระวี บุญสิริเวทย์</p>
-      <p>เว็บไซต์นี้ไม่ใช่เว็บไซต์ของบริษัท เอไอเอ จำกัด (เอไอเอ) หากต้องการติดต่อ เอไอเอ กรุณาคลิก <a href="https://www.aia.co.th" target="_blank" rel="noopener noreferrer" style={linkStyle}>www.aia.co.th</a></p>
+    <footer className="footer">
+      <p>Copyright&copy; 2024 ตัวแทนประกันชีวิตเอไอเอ คุณดาระวี บุญสิริเวทย์</p>
+      <p>เว็บไซต์นี้ไม่ใช่เว็บไซต์ของบริษัท เอไอเอ จำกัด (เอไอเอ) หากต้องการติดต่อ เอไอเอ กรุณาคลิก <a href="https://www.aia.co.th" target="_blank" rel="noopener noreferrer" className="footer-link">www.aia.co.th</a></p>
     </footer>
   );
 }

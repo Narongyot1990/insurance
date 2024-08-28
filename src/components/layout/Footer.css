@@ -1,0 +1,26 @@
+/* Footer.css */
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative;
+  bottom: 0;
+}
+
+.footer-link {
+  color: #00aaff;
+  text-decoration: underline;
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .footer {
+    font-size: 12px;
+    padding: 8px 0;
+  }
+}

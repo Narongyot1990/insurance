@@ -1,0 +1,178 @@
+/* MultiEffectBackground.css */
+.multi-effect-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh * 4); /* ปรับตามจำนวน sections */
+  overflow: hidden;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.background.visible {
+  opacity: 1;
+}
+
+.background.hidden {
+  opacity: 0;
+}
+
+.overlay-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  z-index: 1;
+}
+
+.overlay-content.visible {
+  opacity: 1;
+}
+
+.overlay-content.hidden {
+  opacity: 0;
+}
+
+.section-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.section-content p {
+  font-size: 1.5rem;
+}
+
+/* Glitch Effect */
+@keyframes glitchWave {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.glitch-bg {
+  display: flex;
+  justify-content: space-between;
+}
+
+.glitch-line {
+  width: 2px; /* ความกว้างของแท่ง */
+  height: 100%;
+  background: linear-gradient(to bottom, #ff0066, #330033);
+  animation: glitchWave 3s infinite ease-in-out;
+  opacity: 0.8;
+}
+
+.glitch-line:nth-child(odd) {
+  background: linear-gradient(to bottom, #00ff66, #003300);
+  animation-delay: calc(var(--i) * 0.1s); /* เพื่อให้แต่ละแท่ง glitch ในเวลาที่ต่างกัน */
+}
+
+/* Particle Effect */
+@keyframes moveParticle {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+.particle-bg {
+  background-color: #000;
+  overflow: hidden;
+}
+
+.particle-bg::before,
+.particle-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: moveParticle 3s infinite linear;
+}
+
+.particle-bg::before {
+  left: 10%;
+  animation-duration: 3s;
+  animation-delay: 0s;
+}
+
+.particle-bg::after {
+  left: 20%;
+  animation-duration: 4s;
+  animation-delay: 1s;
+}
+
+.particle-bg > div:nth-child(3) {
+  left: 30%;
+  animation-duration: 2.5s;
+  animation-delay: 2s;
+}
+
+/* Neon Glow */
+{
+  /*@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 10px #0fa, 0 0 20px #0fa, 0 0 30px #0fa, 0 0 40px #0fa, 0 0 50px #0fa, 0 0 60px #0fa, 0 0 70px #0fa;
+  }
+  50% {
+    box-shadow: 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 50px #0ff, 0 0 60px #0ff, 0 0 70px #0ff, 0 0 80px #0ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #0fa, 0 0 20px #0fa, 0 0 30px #0fa, 0 0 40px #0fa, 0 0 50px #0fa, 0 0 60px #0fa, 0 0 70px #0fa;
+  }
+}
+*/}
+
+.neon-bg {
+  background: linear-gradient(to right, #00f260, #0575e6);
+  filter: brightness(1.1) contrast(1.1) blur(5px);
+  /*animation: neonPulse 2s infinite alternate;*/
+}
+
+/* Aurora Borealis Effect */
+@keyframes auroraMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.aurora-bg {
+  background: linear-gradient(270deg, #00c6ff, #0072ff);
+  background-size: 400% 400%;
+  animation: auroraMove 10s infinite linear;
+  filter: blur(5px) brightness(1.2);
+}

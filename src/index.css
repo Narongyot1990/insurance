@@ -12,4 +12,25 @@ code {
     monospace;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body, html {
+  background-color: #ffffff;
+  width: 100%;
+  overflow-x: hidden; /* ปิดการเลื่อนในแนวนอน */
+  
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* หรือขนาดที่เหมาะสม */
+  margin: 0 auto;
+}
+
+.section {
+  width: 100%;
+}

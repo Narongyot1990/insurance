@@ -1,0 +1,181 @@
+/* ProductBubble.css */
+.bubble-container {
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    perspective: 1000px; /* เพิ่ม perspective เพื่อให้มีความลึก */
+    max-width: 800px;
+}
+
+.bubble-item {
+    width: 110px; 
+    height: 110px;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* เปลี่ยนเป็น column เพื่อให้ข้อความอยู่ด้านล่าง */
+    margin: 0.5rem;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 3px #F50057;
+    transition: transform 0.3s ease-in-out;
+    animation: floating 4s ease-in-out infinite, borderPulse 5s ease-in-out infinite, rotateGradient 10s linear infinite;
+    transform-style: preserve-3d;
+    transform: skewY(-5deg) rotateY(0deg); /* บิดเบี้ยวและเพิ่มความลึกใน 3D */
+}
+
+.bubble-item:hover {
+    transform: scale(1.3) skewY(0deg) rotateY(15deg); /* เปลี่ยนแปลงเมื่อ hover เพื่อให้มีมิติ */
+    animation: none; /* ยกเลิกแอนิเมชันระหว่าง hover */
+    box-shadow: 0 0 10px #F50057;
+}
+
+.bubble-icon {
+    width: 40px; /* ปรับขนาดของภาพ */
+    height: 40px; /* ปรับขนาดของภาพ */
+    transition: transform 0.5s ease;
+    object-fit: cover; /* ทำให้ภาพเข้ากับพื้นที่ที่กำหนด */
+    border-radius: 50%; /* ทำให้ไอคอนเป็นวงกลม */
+    animation: animateIcon 3s ease-in-out infinite;
+}
+
+.bubble-item:hover .bubble-icon {
+    transform: scale(1.5) rotate(15deg); /* เพิ่มเอฟเฟกต์ขยายและหมุนไอคอน */
+    animation: none; /* ยกเลิกแอนิเมชันระหว่าง hover */
+}
+
+.bubble-item:nth-child(1) .bubble-icon {
+    animation-delay: 0s;
+}
+
+.bubble-item:nth-child(2) .bubble-icon {
+    animation-delay: 0.3s;
+}
+
+.bubble-item:nth-child(3) .bubble-icon {
+    animation-delay: 0.6s;
+}
+
+.bubble-item:nth-child(4) .bubble-icon {
+    animation-delay: 0.9s;
+}
+
+.bubble-item:nth-child(5) .bubble-icon {
+    animation-delay: 1.2s;
+}
+
+/* เพิ่ม delay ตามจำนวนไอคอนที่มี */
+
+.bubble-heading {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.bubble-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0.25rem;
+    gap: 0.5rem; /* เพิ่มช่องว่างระหว่างรายการ */
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes borderPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* ปรับขนาดเล็กน้อยเพื่อให้ลื่นไหล */
+    }
+}
+
+@keyframes rotateGradient {
+    0% {
+        background: linear-gradient(white, white) padding-box, 
+                    linear-gradient(45deg, #C61063, #F50057, #FF4081, #FF80AB) border-box;
+    }
+    16.67% {
+        background: linear-gradient(white, white) padding-box, 
+                    linear-gradient(105deg, #C61063, #F50057, #FF4081, #FF80AB) border-box;
+    }
+    33.34% {
+        background: linear-gradient(white, white) padding-box, 
+                    linear-gradient(165deg, #C61063, #F50057, #FF4081, #FF80AB) border-box;
+    }
+    50% {
+        background: linear-gradient(white, white) padding-box, 
+                    linear-gradient(225deg, #C61063, #F50057, #FF4081, #FF80AB) border-box;
+    }
+    66.67% {
+        background: linear-gradient(white, white) padding-box, 
+                    linear-gradient(285deg, #C61063, #F50057, #FF4081, #FF80AB) border-box;
+    }
+    83.34% {
+        background: linear-gradient(white, white) padding-box, 
+                    linear-gradient(345deg, #C61063, #F50057, #FF4081, #FF80AB) border-box;
+    }
+    100% {
+        background: linear-gradient(white, white) padding-box, 
+                    linear-gradient(405deg, #C61063, #F50057, #FF4081, #FF80AB) border-box;
+    }
+}
+
+@keyframes animateIcon {
+    0%, 100% {
+        transform: scale(1) skewY(-5deg) rotateY(0deg) ;
+    }
+    50% {
+        transform: scale(1.3) skewY(0deg) rotateY(15deg);
+    }
+}
+
+.bubble-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* จัดตำแหน่งข้อความให้อยู่ใต้ไอคอน */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* เอาขีดเส้นใต้ลิงก์ออก */
+    color: inherit; /* สีของลิงก์ตามที่กำหนดใน .bubble-item */
+}
+
+.bubble-item p {
+    margin: 0.5rem 0 0; /* เพิ่มระยะห่างด้านบนให้ข้อความ */
+    font-size: 12px; /* ปรับขนาดข้อความ */
+    color: #D31145; /* ปรับสีข้อความตามที่ต้องการ */
+    text-align: center;
+    white-space: nowrap; /* ป้องกันข้อความแตกบรรทัด */
+    overflow: hidden;
+    text-overflow: ellipsis; /* เพิ่มขีดสามจุดหากข้อความยาวเกิน */
+}
+
+@media screen and (max-width: 768px) {
+    
+    .bubble-item {
+        width: 70px; 
+        height: 70px;
+    }
+
+    .bubble-item p {
+        scale: 0.7;
+    }
+
+    .bubble-item a {
+        scale: 0.8;
+    }
+}

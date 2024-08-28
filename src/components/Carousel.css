@@ -6,7 +6,8 @@
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: 8px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
   
   .carousel-track {
@@ -31,7 +32,7 @@
     bottom: 20px;
     left: 20px;
     color: #fff;
-    font-size: 24px;
+    font-size: 1rem;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 4px;
@@ -42,6 +43,9 @@
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
     border: none;
     color: #fff;
     padding: 10px;
@@ -80,3 +84,9 @@
     background-color: rgba(255, 255, 255, 1);
   }
   
+@media screen and (max-width: 768px) {
+  .carousel {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+}

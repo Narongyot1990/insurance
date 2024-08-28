@@ -1,27 +1,15 @@
-/* src/pages/Promotion.css */
 .promotion-page {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* ใช้ minmax เพื่อกำหนดขนาดคอลัมน์ขั้นต่ำ */
-  gap: 20px; 
-  padding: 20px;
   box-sizing: border-box;
   overflow: visible;
+  display: flex;
+  flex-direction: column; /* ทำให้เนื้อหาจัดเรียงในแนวตั้ง */
+  min-height: 100vh; /* ใช้ความสูงอย่างน้อย 100% ของ viewport height */
+  background: linear-gradient(135deg, #BE375F, #ED8554, #F5EB6D); /* Gradient Sunrise */
 }
 
-.product-card {
-  box-sizing: border-box;
-  min-width: 250px; /* ตั้งค่า min-width สำหรับการ์ด */
-  max-width: 100%; /* ทำให้การ์ดเต็มพื้นที่ของคอลัมน์ */
-}
-
-@media screen and (max-width: 1024px) {
-  .promotion-page {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* ใช้คอลัมน์แบบยืดหยุ่น */
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .promotion-page {
-    grid-template-columns: 1fr; /* สำหรับมือถือ ใช้คอลัมน์เดียว */
-  }
+.promotion-content {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px; /* กำหนดความกว้างสูงสุดสำหรับ content */
+  width: 100%; /* ใช้ความกว้างเต็มที่ */
 }

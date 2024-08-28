@@ -1,6 +1,5 @@
 // src/components/PhoneButton.js
 import React from 'react';
-import './PhoneButton.css'; 
 import phoneIcon from '../assets/images/phone2.png'; 
 
 function PhoneButton({ isOpen }) {

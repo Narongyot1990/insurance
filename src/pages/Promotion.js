@@ -53,9 +53,11 @@ function Promotion() {
 
   return (
     <div className="promotion-page">
-      {products.map((product, index) => (
-        <ProductCard key={index} {...product} />
-      ))}
+      <div className='promotion-content'> 
+        {products.map((product, index) => (
+          <ProductCard key={index} {...product} />
+        ))}
+      </div>
     </div>
   );
 }

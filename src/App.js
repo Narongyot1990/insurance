@@ -6,17 +6,31 @@ import Promotion from './pages/Promotion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ContactButtons from './components/ContactButtons';
+import HealthInsurance from './pages/health/health-insurance'
+
 
 function App() {
+  const appStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
+    
+  };
+
+  const contentStyle = {
+    flex: '1', 
+  };
+
   return (
-    <div className="app-root">
+    <div style={appStyle}>
       <Router>
         <Navbar />
-        <div className="content-container">
+        <div style={contentStyle}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="/promotion" element={<Promotion />} />
+            <Route path="/products/health-insurance" element={<HealthInsurance />} />
           </Routes>
         </div>
         <Footer /> 

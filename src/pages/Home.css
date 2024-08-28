@@ -1,0 +1,82 @@
+/* Home.css */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.home-section {
+  margin-bottom: 20px;
+  opacity: 0; /* Default to hidden */
+  transform: translateY(20px); /* Slightly offset initially */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#accordion {
+  display: block; /* กำหนดให้ element ที่มี id="accordion" เป็น block */
+  width: 100%; /* กำหนดให้ใช้ความกว้างเต็มที่ภายใน container */
+}
+
+.home-section.visible {
+  opacity: 1;
+  transform: translateY(0); /* Slide into place */
+}
+
+/* เพิ่มเอฟเฟกต์เฟดอินและสไลด์ขึ้น */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* เอฟเฟกต์คลื่นที่พื้นหลัง */
+@keyframes waveEffect {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ปรับปรุง article-section ด้วยเฟดอินและสไลด์ขึ้น */
+.article-section {
+  background-color: rgba(255, 255, 255, 0.1); /* เพิ่มความโปร่งแสงให้กับ section */
+  padding: 20px;
+  overflow: hidden; 
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Divider ที่ดูทันสมัย */
+.article-divider {
+  width: 80%;
+  margin: 30px auto;
+  border-radius: 25%;
+  filter: brightness(1.1), contrast(1);
+  opacity: 0.7;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out 0.3s backwards; /* เพิ่มการเลื่อนขึ้นแบบช้า */
+}
+
+/* เน้นย้ำความละเอียดอ่อนใน content box */
+.article-content-box {
+  background-color: rgba(255, 255, 255, 0.5); /* สีพื้นหลังของ content box ที่มีความโปร่งแสง */
+  backdrop-filter: blur(100px); /* เอฟเฟกต์เบลอ */
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 1s ease-out 0.5s backwards; 
+}
